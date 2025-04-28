@@ -22,6 +22,7 @@ export type ApiProvider =
 	| "asksage"
 	| "xai"
 	| "sambanova"
+	| "drivex"
 
 export interface ApiHandlerOptions {
 	apiModelId?: string
@@ -81,6 +82,10 @@ export interface ApiHandlerOptions {
 	reasoningEffort?: string
 	sambanovaApiKey?: string
 	requestTimeoutMs?: number
+	drivexBaseUrl?: string
+	drivexModelId?: string
+	drivexApiKey?: string
+	drivexUsePromptCache?: boolean
 }
 
 export type ApiConfiguration = ApiHandlerOptions & {
@@ -1650,3 +1655,66 @@ export const requestyDefaultModelInfo: ModelInfo = {
 	cacheReadsPrice: 0.3,
 	description: "Anthropic's most intelligent model. Highest level of intelligence and capability.",
 }
+
+// DriveX
+// https://docs.litellm.ai/docs/
+export type DriveXModelId = keyof typeof drivexModels
+export const drivexDefaultModelId: DriveXModelId = "vercel-gemini-2.5-pro-exp-03-25"
+export const drivexModels = {
+	"ais-Qwen2.5-32B": {
+		maxTokens: 4096,
+		contextWindow: 16_000,
+		supportsImages: false,
+		supportsPromptCache: false,
+		inputPrice: 0,
+		outputPrice: 0,
+	},
+	"ais-QwQ-32B": {
+		maxTokens: 4096,
+		contextWindow: 16_000,
+		supportsImages: false,
+		supportsPromptCache: false,
+		inputPrice: 0,
+		outputPrice: 0,
+	},
+	"nebulacoder-nebulacoder-v5.2": {
+		maxTokens: 32768,
+		contextWindow: 32768,
+		supportsImages: false,
+		supportsPromptCache: false,
+		inputPrice: 0,
+		outputPrice: 0,
+	},
+	"nebulacoder-nebulacoder-v6.0": {
+		maxTokens: 32768,
+		contextWindow: 64_000,
+		supportsImages: false,
+		supportsPromptCache: false,
+		inputPrice: 0,
+		outputPrice: 0,
+	},
+	"nebulacoder-nebulacoder-cot-v6.0": {
+		maxTokens: 32768,
+		contextWindow: 64_000,
+		supportsImages: false,
+		supportsPromptCache: false,
+		inputPrice: 0,
+		outputPrice: 0,
+	},
+	"vercel-gemini-2.0-flash": {
+		maxTokens: 8192,
+		contextWindow: 1_048_576,
+		supportsImages: true,
+		supportsPromptCache: false,
+		inputPrice: 0,
+		outputPrice: 0,
+	},
+	"vercel-gemini-2.5-pro-exp-03-25": {
+		maxTokens: 65536,
+		contextWindow: 1_048_576,
+		supportsImages: true,
+		supportsPromptCache: false,
+		inputPrice: 0,
+		outputPrice: 0,
+	},
+} as const satisfies Record<string, ModelInfo>
