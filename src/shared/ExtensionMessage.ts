@@ -35,7 +35,6 @@ export interface ExtensionMessage {
 		| "mcpDownloadDetails"
 		| "commitSearchResults"
 		| "openGraphData"
-		| "isImageUrlResult"
 		| "didUpdateSettings"
 		| "userCreditsBalance"
 		| "userCreditsUsage"
@@ -48,6 +47,7 @@ export interface ExtensionMessage {
 		| "relativePathsResponse" // Handles single and multiple path responses
 		| "fileSearchResults"
 		| "grpc_response" // New type for gRPC responses
+		| "setActiveQuote"
 	text?: string
 	paths?: (string | null)[] // Used for relativePathsResponse
 	action?:
@@ -132,6 +132,7 @@ export interface ExtensionState {
 	shouldShowAnnouncement: boolean
 	taskHistory: HistoryItem[]
 	telemetrySetting: TelemetrySetting
+	shellIntegrationTimeout: number
 	uriScheme?: string
 	userInfo?: {
 		displayName: string | null
@@ -142,6 +143,8 @@ export interface ExtensionState {
 	vscMachineId: string
 	globalClineRulesToggles: ClineRulesToggles
 	localClineRulesToggles: ClineRulesToggles
+	localCursorRulesToggles: ClineRulesToggles
+	localWindsurfRulesToggles: ClineRulesToggles
 }
 
 export interface ClineMessage {

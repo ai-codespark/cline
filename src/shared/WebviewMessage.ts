@@ -18,13 +18,12 @@ export interface WebviewMessage {
 		| "selectImages"
 		| "exportCurrentTask"
 		| "showTaskWithId"
-		| "deleteTaskWithId"
+		| "deleteTasksWithIds"
 		| "exportTaskWithId"
 		| "resetState"
 		| "requestOllamaModels"
 		| "requestLmStudioModels"
 		| "openInBrowser"
-		| "createRuleFile"
 		| "openMention"
 		| "showChatView"
 		| "refreshOpenRouterModels"
@@ -54,7 +53,6 @@ export interface WebviewMessage {
 		| "telemetrySetting"
 		| "openSettings"
 		| "fetchOpenGraphData"
-		| "checkIsImageUrl"
 		| "invoke"
 		| "updateSettings"
 		| "clearAllTaskHistory"
@@ -69,8 +67,12 @@ export interface WebviewMessage {
 		| "toggleFavoriteModel"
 		| "grpc_request"
 		| "toggleClineRule"
+		| "toggleCursorRule"
+		| "toggleWindsurfRule"
 		| "deleteClineRule"
 		| "copyToClipboard"
+		| "updateTerminalConnectionTimeout"
+		| "setActiveQuote"
 
 	// | "relaunchChromeDebugMode"
 	text?: string
@@ -121,6 +123,7 @@ export interface WebviewMessage {
 	filename?: string
 
 	offset?: number
+	shellIntegrationTimeout?: number
 }
 
 export type ClineAskResponse = "yesButtonClicked" | "noButtonClicked" | "messageResponse"
