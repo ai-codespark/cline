@@ -1694,6 +1694,15 @@ const ApiOptions = ({
 						placeholder="Enter API Key...">
 						<span style={{ fontWeight: 500 }}>DriveX API Key</span>
 					</VSCodeTextField>
+					<VSCodeTextField
+						value={apiConfiguration?.drivexBaseUrl || ""}
+						style={{ width: "100%" }}
+						type="url"
+						onInput={handleInputChange("drivexBaseUrl")}
+						placeholder={"Default: https://api.drivex.ai"}>
+						<span style={{ fontWeight: 500 }}>Base URL (optional)</span>
+					</VSCodeTextField>
+
 					<p
 						style={{
 							fontSize: "12px",

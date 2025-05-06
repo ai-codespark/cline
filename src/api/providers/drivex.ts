@@ -14,8 +14,8 @@ export class DriveXHandler implements ApiHandler {
 	constructor(options: ApiHandlerOptions) {
 		this.options = options
 		this.client = new OpenAI({
-			baseURL: "https://api.drivex.ai",
-			apiKey: this.options.drivexApiKey,
+			baseURL: this.options.drivexBaseUrl || "https://api.drivex.ai",
+			apiKey: this.options.drivexApiKey || "noop",
 		})
 	}
 
