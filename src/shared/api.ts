@@ -1738,7 +1738,7 @@ export const requestyDefaultModelInfo: ModelInfo = {
 // DriveX
 // https://docs.litellm.ai/docs/
 export type DriveXModelId = keyof typeof drivexModels
-export const drivexDefaultModelId: DriveXModelId = "vercel-gemini-2.5-pro-exp-03-25"
+export const drivexDefaultModelId: DriveXModelId = "nebulacoder-nebulacoder-v6.0"
 export const drivexModels = {
 	"ais-Qwen2.5-32B": {
 		maxTokens: 4096,
